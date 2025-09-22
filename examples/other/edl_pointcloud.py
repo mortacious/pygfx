@@ -46,6 +46,7 @@ def load_open3d_bunny_pointcloud(max_points: int = 40000) -> o3d.geometry.PointC
     pcd = mesh.sample_points_poisson_disk(max_points)
     return pcd
 
+
 canvas = RenderCanvas(update_mode="continuous")
 renderer = gfx.renderers.WgpuRenderer(canvas)
 scene = gfx.Scene()

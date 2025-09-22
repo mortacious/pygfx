@@ -114,7 +114,9 @@ class EDLEffectPass(EffectPass):
         }
     """
 
-    def __init__(self, *, strength=1.0, radius=1.5, num_samples=8, depth_edge_threshold=0.0):
+    def __init__(
+        self, *, strength=1.0, radius=1.5, num_samples=8, depth_edge_threshold=0.0
+    ):
         super().__init__()
         # Clamp/validate
         num_samples = int(num_samples)
@@ -152,5 +154,3 @@ class EDLEffectPass(EffectPass):
     @depth_edge_threshold.setter
     def depth_edge_threshold(self, value):
         self._uniform_data["depth_edge_threshold"] = float(value)
-
-

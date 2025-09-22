@@ -58,7 +58,7 @@ scene.add(gfx.Background.from_color("#111"))
 
 tm = load_bunny()
 geometry = gfx.geometry_from_trimesh(tm)
-material = gfx.MeshPhongMaterial(color="#e6e6e6")
+material = gfx.MeshBasicMaterial(color="#e6e6e6")
 mesh = gfx.Mesh(geometry, material)
 scene.add(mesh)
 
@@ -71,7 +71,7 @@ controller = gfx.OrbitController(camera, register_events=renderer)
 scene.add(gfx.AmbientLight(0.2), camera.add(gfx.DirectionalLight(1.0)))
 
 # Apply EDL post-processing (Potree-like scaling inside pass)
-renderer.effect_passes = [EDLEffectPass(strength=1.2, radius=1.5, depth_edge_threshold=0.0)]
+renderer.effect_passes = [EDLEffectPass(strength=10.0, radius=1.5, depth_edge_threshold=0.0)]
 
 
 if __name__ == "__main__":

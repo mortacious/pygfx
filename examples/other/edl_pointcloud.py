@@ -56,7 +56,7 @@ scene.add(gfx.Background.from_color("#111"))
 # Load Stanford Bunny with Open3D and render as point cloud
 pcd = load_open3d_bunny_pointcloud(max_points=40000)
 geometry = gfx.geometries.geometry_from_open3d(pcd)
-material = gfx.PointsMaterial(size=10.0, color="#ddd", aa=False, size_space="screen")
+material = gfx.PointsMaterial(size=8.0, color="#ddd", aa=False, size_space="screen")
 points = gfx.Points(geometry, material)
 scene.add(points)
 

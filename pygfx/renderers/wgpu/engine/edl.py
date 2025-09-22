@@ -36,10 +36,6 @@ class EDLEffectPass(EffectPass):
         depth_edge_threshold="f4",
     )
 
-    # WGSL fragment shader implementing an EDL-like response. It samples neighbors around
-    # the current pixel in a small kernel and accumulates a shading factor based on the
-    # depth differences. This is a lightweight, vendor-neutral approximation suitable
-    # for post-processing in pygfx.
     wgsl = """
         const EDL_SCALE: f32 = 200.0; // scale to match Potree-like response levels
 
@@ -107,7 +103,7 @@ class EDLEffectPass(EffectPass):
             }
 
             // Normalize and map response to a dimming factor
-            // Potree-like: don't overly normalize; scale with EDL_SCALE for visible effect at strength~1
+            // scale with EDL_SCALE for visible effect
             let shade = exp(-u_effect.strength * response * EDL_SCALE);
             let shaded_rgb = color_c.rgb * shade;
             return vec4<f32>(shaded_rgb, color_c.a);

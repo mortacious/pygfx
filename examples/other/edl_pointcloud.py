@@ -13,7 +13,7 @@ from importlib.util import find_spec
 
 from rendercanvas.auto import RenderCanvas, loop
 import pygfx as gfx
-from pygfx.renderers.wgpu.engine.edl_effectpass import EDLEffectPass
+from pygfx.renderers.wgpu.engine.edl import EDLEffectPass
 
 if not find_spec("open3d"):
     raise ImportError(
@@ -47,7 +47,7 @@ def load_open3d_bunny_pointcloud(max_points: int = 40000) -> o3d.geometry.PointC
     return pcd
 
 
-canvas = RenderCanvas(update_mode="continuous")
+canvas = RenderCanvas(size=(1024, 1024), update_mode="continuous")
 renderer = gfx.renderers.WgpuRenderer(canvas)
 scene = gfx.Scene()
 
@@ -63,7 +63,6 @@ scene.add(points)
 
 camera = gfx.PerspectiveCamera(60, 1)
 camera.show_object(scene, view_dir=(1, -1, 0.8))
-camera.position = (8, -8, 6)
 
 controller = gfx.OrbitController(camera, register_events=renderer)
 

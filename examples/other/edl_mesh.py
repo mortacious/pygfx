@@ -13,7 +13,7 @@ from importlib.util import find_spec
 
 from rendercanvas.auto import RenderCanvas, loop
 import pygfx as gfx
-from pygfx.renderers.wgpu.engine.edl_effectpass import EDLEffectPass
+from pygfx.renderers.wgpu.engine.edl import EDLEffectPass
 
 if not find_spec("open3d"):
     raise ImportError(

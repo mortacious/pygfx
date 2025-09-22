@@ -18,9 +18,9 @@ class EDLEffectPass(EffectPass):
     Parameters
     ----------
     strength : float
-        EDL strength (Potree-like). Typical range ~ [0.5, 3.0]. Default 1.0.
+        EDL strength. Typical range ~ [0.5, 10.0]. Default 1.0.
     radius : float
-        Sampling radius in pixels (Potree-like). Typical range ~ [1.0, 3.0]. Default 1.5.
+        Sampling radius in pixels. Typical range ~ [1.0, 3.0]. Default 1.5.
     num_samples : int
         Number of neighbor samples around the pixel. Typical values 4 or 8.
     depth_edge_threshold : float
